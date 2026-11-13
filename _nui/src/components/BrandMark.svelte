@@ -1,0 +1,15 @@
+<script lang="ts">
+  interface Props {
+    class?: string;
+  }
+
+  let { class: className = '' }: Props = $props();
+</script>
+
+<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class={className} aria-hidden="true">
+  <path d="M14 14 L44 36 L60 44 L76 36 L106 14 L101 74 C100 96 84 108 60 108 C36 108 20 96 19 74 Z" fill="#FAFAFA" />
+  <path d="M53.2 52.8 A13 13 0 1 0 53.2 71.2" stroke="#0A0A0A" stroke-width="7" stroke-linecap="round" />
+  <circle cx="76" cy="62" r="12" stroke="#0A0A0A" stroke-width="7" />
+  <circle cx="76" cy="62" r="4.5" fill="#5078D7" />
+  <path d="M55.5 79 L64.5 79 L60 87 Z" fill="#0A0A0A" />
+</svg>

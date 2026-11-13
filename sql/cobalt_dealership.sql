@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS `dealership_loans` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `citizenid` VARCHAR(50) NOT NULL,
+  `citizenid_archived` VARCHAR(50) DEFAULT NULL,
+  `vehicle` VARCHAR(50) NOT NULL,
+  `plate` VARCHAR(15) NOT NULL,
+  `principal` INT UNSIGNED NOT NULL DEFAULT 0,
+  `interest_rate` DECIMAL(6,4) NOT NULL DEFAULT 0,
+  `remaining` INT UNSIGNED NOT NULL DEFAULT 0,
+  `weekly_payment` INT UNSIGNED NOT NULL DEFAULT 0,
+  `term_weeks` SMALLINT UNSIGNED NOT NULL DEFAULT 0,
+  `payments_made` SMALLINT UNSIGNED NOT NULL DEFAULT 0,
+  `next_payment_due` DATETIME DEFAULT NULL,
+  `status` ENUM('active','paid','repossessed') NOT NULL DEFAULT 'active',
+  `financed_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `repossessed` TINYINT(1) NOT NULL DEFAULT 0,
+  `repossess_reason` VARCHAR(64) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `citizenid` (`citizenid`),
+  KEY `due` (`status`, `next_payment_due`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
