@@ -7,7 +7,7 @@ local Cobalt <const> = exports.cobalt_core:GetCoreObject()
 ---@param citizenid string
 ---@param notification table
 local function notifyOwner(citizenid, notification)
-    local player <const> = Cobalt.Functions.GetPlayerByCitizenId(citizenid)
+    local player <const> = Cobalt.Functions.GetPlayerByCitizenId(citizenid, true)
 
     if player then Cobalt.Functions.Notify(player.PlayerData.source, notification) end
 end
